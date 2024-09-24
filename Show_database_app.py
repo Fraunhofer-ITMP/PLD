@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -50,13 +51,15 @@ def create_plots(df, label_column):
     unique_labels = np.unique(labels)
     color_map = dict(zip(unique_labels, sns.color_palette("husl", len(unique_labels))))
     colors = [color_map[label] for label in labels]
+    size_map = dict(zip(unique_labels, np.linspace(20, 10, len(unique_labels))))
+    sizes = [size_map[label] for label in labels]
     
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
     
-    scatter1 = ax1.scatter(pca_result[:, 0], pca_result[:, 1], c=colors)
+    scatter1 = ax1.scatter(pca_result[:, 0], pca_result[:, 1], c=colors, s=sizes)
     ax1.set_title("PCA")
     
-    scatter2 = ax2.scatter(tsne_result[:, 0], tsne_result[:, 1], c=colors)
+    scatter2 = ax2.scatter(tsne_result[:, 0], tsne_result[:, 1], c=colors, s=sizes)
     ax2.set_title("t-SNE")
     
     # Create a custom legend
