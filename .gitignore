@@ -1,1 +1,3 @@
 *.vscode
+tmap/*
+.DS_Store
