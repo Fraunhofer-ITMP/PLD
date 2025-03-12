@@ -18,7 +18,7 @@
 
 This is the source and data repository for the using ML models to predicting the cellular phospholipidosis activity of compounds. A subsequent publication titled "Predicting cellular phospholipidosis on different cell lines using repurposing libraries and machine learning" is under preparation.
 
-For our model training workflow, we have leveraged both KNIME and Python frameworks to allow both communities to reuse our work. Below we describe in detail the Python framework only. For the KNIME framework, please take a look [here](). # TODO: Add link to KNIME space
+For our model training workflow, we have leveraged both KNIME and Python frameworks to allow both communities to reuse our work. Below we describe in detail the Python framework only. For the KNIME framework, please take a look [here](https://hub.knime.com/s/m6rnKt_4iYtDI1yt).
 
 # Data organization
 
@@ -36,7 +36,7 @@ The dataset was built on the KNIME workflow. So more details can be found either
 We use the conda environment to build and run our codes. Please follow the following steps to build the conda environment with all the necessary python packages
 ```bash
 git clone https://github.com/Fraunhofer-ITMP/PLD.git
-conda create --name=pld python=3.9
+conda create --name=pld python=3.10
 conda activate pld
 conda cd PLD
 pip install -r requirements.txt
@@ -48,10 +48,11 @@ python -m ipykernel install --user --name=pld
 ```
 After this, *"pld"* should be displayed as a kernel in your VSCode environment. Alternatively, you could spin the jupyter notebook from the conda environment itself using the following command: `jupyter notebook`
 
+# How to build own model in KNIME?
 
-Sample the modelling effort on Phospholipidosis together with Karolinska data.
+You can do so by downloading the [workflow](https://hub.knime.com/s/m6rnKt_4iYtDI1yt) locally and running it.
 
-It contains data input KNIME workflow and a Python notebook which implements XGBoost classification model reported in the publications (ref)
+# Overview of the model?
 
-Show_database_app.py is a Streamlit app which allows user to "see" the training set that has been used and eventually the XOR dataset which is not part of the training set. Moreover, it shows the top10 most important features of any model saved as pickle file and provides a set of boxplot to visualize how much these features really are different in the labelling group ('Active' - 'Inactive')
+[Show_database_app.py](Show_database_app.py) is a Streamlit app which allows user to "see" the training set that has been used and eventually the XOR dataset which is not part of the training set. Moreover, it shows the top10 most important features of any model saved as pickle file and provides a set of boxplot to visualize how much these features really are different in the labelling group ('Active' - 'Inactive')
 
