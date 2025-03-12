@@ -8,11 +8,13 @@
 </h1>
 
 
-
 # TOC
 
 * [About](#about)
 * [Organization](#data-organization)
+* [Dataset building](#how-did-we-build-the-dataset)
+* [Model training](#how-to-build-own-model-in-knime)
+* [Citation](#citation)
 
 # About
 
@@ -22,10 +24,38 @@ For our model training workflow, we have leveraged both KNIME and Python framewo
 
 # Data organization
 
-TODO: Add tree here
-
-# How to use our model?
-
+```
+.
+├── data
+│   ├── processed
+│   │   ├── complete_data.tsv
+│   │   └── model_data_subset.csv
+│   └── raw
+│       └── Phospholipidosis_KI_ITMP.xlsx
+├── figures
+│   ├── Confusion_Matrix_XGBoost_SMOTE_chemphys.JPG
+│   ├── PLD_tSNE.html
+│   ├── confusion_matrix_PLD_XGBoost.png
+│   ├── feature_importance.png
+│   ├── figure_1.png
+│   ├── figure_2.png
+│   ├── supplementary_figure_1.png
+│   ├── top10_features_boxplots.svg
+│   └── top10_features_boxplots_with_significance.svg
+├── models
+│   ├── final_model_PLD_XGBoost.pkl
+│   └── final_model_PLD_XGBoost_params.json
+├── notebooks
+│   ├── 0_data_eda.ipynb
+│   ├── 1_data_processing.ipynb
+│   ├── 2_model_training.ipynb
+│   └── 3_feature_importance.ipynb
+├── LICENSE
+├── Phospholipidosis_v4_AND.knwf
+├── README.md
+├── Show_database_app.py
+└── requirements.txt
+```
 
 # How did we build the dataset?
 
@@ -52,7 +82,12 @@ After this, *"pld"* should be displayed as a kernel in your VSCode environment. 
 
 You can do so by downloading the [workflow](https://hub.knime.com/s/m6rnKt_4iYtDI1yt) locally and running it.
 
-# Overview of the model?
+# Overview of the model
 
 [Show_database_app.py](Show_database_app.py) is a Streamlit app which allows user to "see" the training set that has been used and eventually the XOR dataset which is not part of the training set. Moreover, it shows the top10 most important features of any model saved as pickle file and provides a set of boxplot to visualize how much these features really are different in the labelling group ('Active' - 'Inactive')
 
+
+# Citation
+
+If you use our work, please cite us as follows:
+> Maria K. *et al.*, Interdisciplinary Study on Drug-Induced-Phospholipidosis of Repurposing Libraries through Machine Learning and Experimental Evaluation in Different Cell Lines. *In press*
